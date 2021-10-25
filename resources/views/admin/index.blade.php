@@ -20,4 +20,7 @@
         </div>
     </div>
 </div>
+<section></senction>
+<section></senction>
+<section></senction>
 @endsection
