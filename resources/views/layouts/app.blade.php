@@ -22,7 +22,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-6">
-        <p><a href="#" class="badge badge-light"><i class="bx bxs-download"></i> Download Lungo App</a> | <a href="#" class="badge badge-light"><i class="bx bx-envelope"></i> mail@lunga.com</a>
+        <p><a href="#" class="badge badge-light"><i class="bx bxs-download"></i> Download Lungo App</a> | <a href="#" class="badge badge-light"><i class="bx bxs-envelope"></i> mail@lunga.com</a>
         </p>
       </div>
 
@@ -52,8 +52,11 @@
 
     <ul class="navbar-nav ml-auto d-block d-md-none">
       <li class="nav-item">
-        <a class="btn btn-link" href="#"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger">3</span></a>
+      <a class="btn btn-link" href="#"><i class="bx bxs-cart"></i> <span class="badge badge-danger">3</span></a>
+      <a class="btn btn-link" href="#"><i class='bx bxs-bell-ring'></i> <span class="badge badge-danger">3</span></a>
+      <a class="btn btn-link" href="#"><i class="bx bxs-envelope"></i> <span class="badge badge-danger">3</span></a>
       </li>
+      
     </ul>
 
     <div class="collapse navbar-collapse">
@@ -65,7 +68,8 @@
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="btn btn-link" href="#"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger">3</span></a>
+        <a class="btn btn-link" href="#"><i class='bx bxs-cart'></i> <span class="badge badge-danger">3</span></a>
+        <a class="btn btn-link" href="#"><i class='bx bxs-bell-ring'></i> <span class="badge badge-danger">3</span></a>
         </li>
        
        
@@ -95,15 +99,9 @@
                 </form>
 
                 <a class="dropdown-item" href="#">Example</a>
-
-                  @endguest
               </div>
-              
-
-              
-
         </div>
-        
+        @endguest
                         
       </ul>
     </div>
@@ -156,18 +154,76 @@
   <div class="sidebar-header">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-10 pl-0">
-          <a class="btn btn-outline-primary" href="#"> Masuk</a>
-          <a class="btn btn-outline-primary" href="#"> Daftar</a>
+      <div class="col-10 pl-0">
+          @guest
+          <a class="btn btn-outline-primary" href="{{ route('login') }}"> Masuk</a>
+          @if (Route::has('register'))
+          <a class="btn btn-outline-primary" href="{{ route('register') }}"> Daftar</a>
+          @endif
+          @else
+          <div class="btn-group">
+          <div class="dropdown">
+          <button type="button" class="btn btn-outline-primary">{{ Auth::user()->name }}</button>
+            <div class="dropdown-content">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                </form>
+
+                <a class="dropdown-item" href="#">Example</a>
+
+
+                
+                
+             
         </div>
+
+
+        
+       
         
 
-        <div class="col-2 text-left">
+        
+      </div>
+
+      <div class="col-1 text-left">
+      </div>
+        
+
+
+
+      <div class="btn-group">
+          <div class="dropdown">
+          <button type="button" class="btn btn-outline-primary">{{ Auth::user()->name }}</button>
+            <div class="dropdown-content">
+            <a class="dropdown-item" href="#">Example</a>
+
+                <a class="dropdown-item" href="#">Example</a>
+
+
+                
+                
+             
+        </div>
+
+
+        
+       
+        
+
+        
+      </div>
+      @endguest
+      <div class="col-2 text-left">
           <button type="button" id="sidebarCollapseX" class="btn btn-link">
                             <i class="bx bx-x icon-single"></i>
                         </button>
         </div>
-      </div>
     </div>
   </div>
 

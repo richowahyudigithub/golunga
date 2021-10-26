@@ -54,7 +54,8 @@
   /* Extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
     .form-inline .form-control {
-      width: 600px;
+      position: relative;
+      width: 500px;
     }
   }
   
@@ -239,7 +240,7 @@
   }
   
   .search-bar .form-control {
-    width: calc(100% - 45px);
+    width: calc(100% - 44px);
   }
 
   /* carousel  */
