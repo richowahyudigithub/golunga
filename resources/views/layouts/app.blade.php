@@ -51,11 +51,7 @@
     </a>
 
     <ul class="navbar-nav ml-auto d-block d-md-none">
-      <li class="nav-item">
-      <a class="btn btn-link" href="#"><i class="bx bxs-cart"></i> <span class="badge badge-danger">3</span></a>
-      <a class="btn btn-link" href="#"><i class='bx bxs-bell-ring'></i> <span class="badge badge-danger">3</span></a>
-      <a class="btn btn-link" href="#"><i class="bx bxs-envelope"></i> <span class="badge badge-danger">3</span></a>
-      </li>
+      
       
     </ul>
 
@@ -66,41 +62,79 @@
       </form>
 
       <ul class="navbar-nav">
+      <li class="nav-item">
+        <div class="btn btn-link">
+          <div class="dropdown">
+              <button type="button" class="btn btn-outline-primary"><i class='bx bxs-cart'></i></button>
+            <div class="dropdown-content">
+            <a class="dropdown-item" href="#">Keranjang Belanja</a>
+            <a class="dropdown-item" href="#">Pesanan Diproses</a>
+            <a class="dropdown-item" href="#">Nota Pesanan</a> 
+            <a class="dropdown-item" href="#">Pesanan Selesai</a>
+          </div>
+        </div>
+      </li>
+
+
 
         <li class="nav-item">
-        <a class="btn btn-link" href="#"><i class='bx bxs-cart'></i> <span class="badge badge-danger">3</span></a>
-        <a class="btn btn-link" href="#"><i class='bx bxs-bell-ring'></i> <span class="badge badge-danger">3</span></a>
-        </li>
+        
+      
+        <div class="btn btn-link">
+          <div class="dropdown">
+              <button type="button" class="btn btn-outline-primary"><i class='bx bxs-envelope'></i></i></button>
+            <div class="dropdown-content">
+            <a class="dropdown-item" href="#">Chat</a>
+            <a class="dropdown-item" href="#">Diskusi</a>
+            <a class="dropdown-item" href="#">Ulasan</a>
+            <a class="dropdown-item" href="#">Pesanan Dikomplain</a>
+            <a class="dropdown-item" href="#">Pesan Bantuan</a>
+            </div>
+        </div>
+      
+      
+      </li>
        
        
         @guest
-            <li class="nav-item ml-md-3">
-                <a class="btn btn-outline-primary" href="{{ route('login') }}">{{ __('Login') }}</a> 
+            <li class="btn btn-link">
+                <a class="btn btn-outline-primary" href="{{ route('login') }}">Masuk</a> 
             </li>
         @if (Route::has('register'))
-            <li class="nav-item ml-md-3">
-                <a class="btn btn-outline-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <li class="btn btn-link">
+                <a class="btn btn-outline-primary" href="{{ route('register') }}">Daftar</a>
             </li>
         @endif
         @else
         
-        <div class="btn-group">
+        
+        <div class="btn btn-link">
           <div class="dropdown">
-          <button type="button" class="btn btn-outline-primary">{{ Auth::user()->name }}</button>
+          <button type="button" class="btn btn-outline-primary"><i class='bx bxs-user-circle'></i></button>
             <div class="dropdown-content">
+            <a class="dropdown-item" href="home">Home</a>
+            <a class="dropdown-item" href="#">Pembelian</a>
+            <a class="dropdown-item" href="#">Wishlist</a>
+            <a class="dropdown-item" href="#">Travel Favorit</a>
+            <a class="dropdown-item" href="#">Saldo</a>
+            <a class="dropdown-item" href="#">Pengaturan</a>
+
+
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        Keluar
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                 </form>
 
-                <a class="dropdown-item" href="#">Example</a>
               </div>
         </div>
+
+
+        
         @endguest
                         
       </ul>
@@ -163,66 +197,52 @@
           @else
           <div class="btn-group">
           <div class="dropdown">
-          <button type="button" class="btn btn-outline-primary">{{ Auth::user()->name }}</button>
+          <button type="button" class="btn btn-outline-primary"><i class='bx bxs-user-circle'></i></button>
             <div class="dropdown-content">
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        Keluar
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                 </form>
-
-                <a class="dropdown-item" href="#">Example</a>
-
-
-                
-                
-             
+                <a class="dropdown-item" href="#">Example</a>   
         </div>
-
-
-        
-       
-        
-
-        
+      
       </div>
-
-      <div class="col-1 text-left">
-      </div>
-        
-
-
-
       <div class="btn-group">
           <div class="dropdown">
-          <button type="button" class="btn btn-outline-primary">{{ Auth::user()->name }}</button>
+          <button type="button" class="btn btn-outline-primary"><i class='bx bxs-cart'></i></button>
             <div class="dropdown-content">
             <a class="dropdown-item" href="#">Example</a>
-
-                <a class="dropdown-item" href="#">Example</a>
-
-
-                
-                
-             
+            <a class="dropdown-item" href="#">Keranjang Belanja</a>
+            <a class="dropdown-item" href="#">Pesanan Diproses</a>
+            <a class="dropdown-item" href="#">Nota Pesanan</a> 
+            <a class="dropdown-item" href="#">Pesanan Selesai</a>
         </div>
-
-
-        
-       
-        
-
-        
       </div>
+      <div class="btn-group">
+          <div class="dropdown">
+          <button type="button" class="btn btn-outline-primary"><i class='bx bxs-cart'></i></button>
+            <div class="dropdown-content">
+            <a class="dropdown-item" href="#">Example</a>
+            <a class="dropdown-item" href="#">Keranjang Belanja</a>
+            <a class="dropdown-item" href="#">Pesanan Diproses</a>
+            <a class="dropdown-item" href="#">Nota Pesanan</a> 
+            <a class="dropdown-item" href="#">Pesanan Selesai</a>
+          
+        </div>
+        
+      </div></div>
+      </div>
+
       @endguest
-      <div class="col-2 text-left">
+      <div class="col-1">
           <button type="button" id="sidebarCollapseX" class="btn btn-link">
-                            <i class="bx bx-x icon-single"></i>
-                        </button>
+              <i class="bx bx-x icon-single"></i>
+          </button>
         </div>
     </div>
   </div>
